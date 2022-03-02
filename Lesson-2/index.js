@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
   //res.send("you connected from home page");
 
   //show my main.ejs from views when i am in / path
-  res.render("main");
+  res.render("main", { name: "ozkan" });
 
   //i can also send file
   //   res.sendFile(path.join(__dirname,"textfile.txt"))
@@ -24,7 +24,8 @@ app.get("/", (req, res) => {
 
 //if i have many functions, i need to collect them in route folder
 //so i will dispatch these functions to router
-app.get("/user", UserRouter.get_user);
+//use: all requests go to UserRouter first
+app.use("/user", UserRouter);
 
 app.listen(port, () => {
   console.log("i am listening  ");
