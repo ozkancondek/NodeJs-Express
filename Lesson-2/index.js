@@ -16,7 +16,10 @@ app.get("/", (req, res) => {
   //res.send("you connected from home page");
 
   //show my main.ejs from views when i am in / path
-  res.render("main", { name: "ozkan" });
+  //show second parameter as prop
+  //res.render("main", { name: "ozkan" });
+  res.render("main", { name: req.query.name });
+  //http://localhost:5000/?name=oliver
 
   //i can also send file
   //   res.sendFile(path.join(__dirname,"textfile.txt"))
