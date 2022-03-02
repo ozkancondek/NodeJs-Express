@@ -8,7 +8,10 @@ const data = require("../models/data");
 //   res.send("u connected from user path");
 // });
 router.get("/", (req, res) => {
-  res.render("user", { users: data.userList });
+  res.render("user", { users: data.userList, id: "" });
+});
+router.get("/:id", (req, res) => {
+  res.render("user", { users: data.userList, id: req.params.id });
 });
 // router.get("/ozkan", (req, res) => {
 //   res.get("user");

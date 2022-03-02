@@ -7,8 +7,9 @@
     <title>Document</title>
   </head>
   <body>
-    User List: <% users.forEach(user => {%>
+    <%if (id) {%> <%=users[id].name%> <%}else {%> User List:
+    <%users.forEach(user => {%>
     <p>-<%=user.name %></p>
-    <%})%>
+    <%})%> <%}%>
   </body>
 </html>
