@@ -25,14 +25,19 @@ const host = "localhost";
 // //u gonna finish process or next middleware
 // //for example there is no return in this function
 // //app.use(() => console.Console.log("middleware:"));
-// app.use((req, res, next) => {
-//   console.Console.log("middleware:1");
+// app.use((  req, res, next) => {
+//   console.Console.log("Auth");
+//   res.isAuth = true;
 //   //make your duty and go for next
 //   next();
 // });
 // app.use((req, res, next) => {
-//   console.Console.log("middleware:2");
-//   //make your duty and go for next
+//   console.Console.log("Controller // db");
+//    if(res.isAuth){
+//        console.log("get private data")
+//    }else{
+//        console.log("no authentication")
+//    }
 //   next();
 // });
 // app.use((req, res, next) => {
@@ -42,7 +47,9 @@ const host = "localhost";
 // });
 
 //use logger
-app.use(logger());
+app.use(logger()); // run logger for every req
+//app.use(logger("dev")); // other option, less detailed
+//logger writes information of all req to consol
 app.get("/", (req, res) => {});
 
 // ********************************************************
@@ -50,10 +57,6 @@ app.get("/", (req, res) => {});
 // middleware
 // ********************************************************
 // ********************************************************
-
-app.get("/", (req, res) => {
-  res.send("hello from / route");
-});
 
 app.listen(port, host, () => {
   //const server = app.listen(port, host, () => {
