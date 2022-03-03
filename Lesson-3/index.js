@@ -6,6 +6,9 @@ require("dotenv").config();
 //npm i morgan
 const logger = require("morgan");
 
+//other middleware to ude
+const cookieParser = require("cookie-parser");
+
 //console.log(process.env);  I can see the variables in .env file now
 //normally, process.env is belong to environment of os.
 
@@ -51,6 +54,13 @@ app.use(logger()); // run logger for every req
 //app.use(logger("dev")); // other option, less detailed
 //logger writes information of all req to consol
 app.get("/", (req, res) => {});
+
+// //use cookieParser
+
+// app.use(cookieParser())
+// app.use((req,res)=>{
+//     console.log("cookies: ", req.cookies)
+// })
 
 // ********************************************************
 // ********************************************************
