@@ -1,0 +1,14 @@
+node.Js PostgreSQL project
+//npx express-generator
+
+//CRUD operations
+//CREATE
+//READ
+//UPDATE
+//DELETE
+  
+restful api  : representational state transfer: api with state  
+MVC
+Model : Postgresql 
+views : EJS Template 
+Controller : own written 
