@@ -1,12 +1,13 @@
 const express = require("express");
 
+const path = require("path");
 //set env file, install dotenv package
 require("dotenv").config();
 
 //npm i morgan
 const logger = require("morgan");
 
-//other middleware to ude
+//other middleware to use
 const cookieParser = require("cookie-parser");
 
 //console.log(process.env);  I can see the variables in .env file now
@@ -16,6 +17,10 @@ const app = express();
 
 const port = process.env.port || 5000;
 const host = "localhost";
+
+//arrangement to read ejs files
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
 // ********************************************************
 // ********************************************************
@@ -49,11 +54,20 @@ const host = "localhost";
 //   next();
 // });
 
-//use logger
-app.use(logger()); // run logger for every req
-//app.use(logger("dev")); // other option, less detailed
-//logger writes information of all req to consol
-app.get("/", (req, res) => {});
+//use cookie parser
+//app.use(cookieParser())
+
+// //use logger
+// app.use(logger()); // run logger for every req
+// //app.use(logger("dev")); // other option, less detailed
+// //logger writes information of all req to consol
+
+// if i wanna use css file directly i need to authenticate my static files with static middleware
+app.use(express.static(__dirname + "/public"));
+
+app.get("/", (req, res) => {
+  res.render("index");
+});
 
 // //use cookieParser
 
