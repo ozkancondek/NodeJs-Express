@@ -12,3 +12,5 @@ MVC
 Model : Postgresql 
 views : EJS Template 
 Controller : own written 
+
+What is controller: controls middleware functions from req to res 
