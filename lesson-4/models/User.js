@@ -16,7 +16,7 @@ sequelize
 
 // modelname, attribute, options
 const UserModel = sequelize.define(
-  "myfirsttables",
+  "recruiters",
   {
     //attributes
     //id, firstName, lastName, createdAt, updatedAt
