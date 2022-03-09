@@ -11,20 +11,8 @@ var usersRouter = require("./routes/users");
 require("dotenv").config();
 var app = express();
 
-//connect to db
-
-//get vaiables  from .env
-const { DB_USERNAME, DB_PASSWORD, DB_HOSTNAME, DB_PORT, DB_NAME } = process.env;
-const sequelize = new Sequelize(
-  `postgres://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOSTNAME}:${DB_PORT}/${DB_NAME}`
-);
-
-//cheeck connection
-sequelize
-  .authenticate()
-  .then(() => console.log("connection is successfull"))
-  .catch((err) => console.log(err))
-  .finally();
+//import db connection file
+require("./models/User");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
