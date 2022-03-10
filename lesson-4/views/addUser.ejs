@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="title">
+      <% if(user){ %> Update User <% } else { %> Add new User <% } %>
+    </h1>
+    <form method="post" action="<%" if(user){ %>
+      <%"=/users/:user.id/edit"%> <% } else { %> "/users/add" <% } %>>
+      <div class="form-group">
+        <label for="name" class="cols-sm-2 control-label">First Name</label>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <span class="input-group-addon"
+              ><i class="fa fa-user fa" aria-hidden="true"></i
+            ></span>
+            <input
+              type="text"
+              class="form-control"
+              name="firstName"
+              id="firstName"
+              placeholder="Enter First Name"
+              value="<%"
+              if(user){
+              %
+            />
+            <%= user.firstName %> <% } else { %> "" <% } %> />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="username" class="cols-sm-2 control-label">Last Name</label>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <span class="input-group-addon"
+              ><i class="fa fa-users fa" aria-hidden="true"></i
+            ></span>
+            <input
+              type="text"
+              class="form-control"
+              name="lastName"
+              id="lastName"
+              placeholder="Enter Last Name"
+              value="<%"
+              if(user){
+              %
+            />
+            <%= user.lastName %> <% } else { %> "" <% } %>/>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button
+          type="submit"
+          class="btn btn-primary btn-lg btn-block login-button"
+        >
+          <% if(user){ %> Update <% } else { %> Add <% } %>
+        </button>
+      </div>
+    </form>
+  </body>
+</html>
